@@ -5,7 +5,6 @@ import axios from 'axios';
 
 const serverSide = 'http://localhost:9000/'
 
-
 export default function Home() {
     // Use State
     const [products, setProducts] = useState([{}])
@@ -35,17 +34,15 @@ export default function Home() {
         />
     }
 
-
     return <>
         <div className="container">
             <h1>
                 Welcome to our official store
             </h1>
-            <div className="card-group">
+            <div className='row row-cols-1 row-cols-md-3 g-4' >
+                {products.map(createCards)}
             </div>
 
-            {products.map(createCards)}
-            {console.log("Site has been rendered")}
 
         </div>
 
