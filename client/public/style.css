@@ -1,3 +1,28 @@
+.card {
+    min-height: 100px;
+    width: 80%;
+    cursor:pointer;
+}
+
+.card-img-top {
+    width: 80%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.prod-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+
+}
+.prod-desc {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .cart-btn {
     font-weight: 900;
 }

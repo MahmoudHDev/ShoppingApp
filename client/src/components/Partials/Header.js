@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Login from "../Login/Login.js";
+import '../../App.css';
 
 export default function Header() {
     return (
@@ -20,6 +21,7 @@ export default function Header() {
                 </ul>
 
                 <div className="col-md-3 text-end">
+                    <Link to="/cart"><button type="button" className="btn btn-outline-light top-cart"><i className="bi bi-cart2"></i></button></Link>
                     <Link to="/login"><button type="button" className="btn btn-outline-primary me-2">Login</button></Link>
                     <Link to="/register"><button type="button" className="btn btn-primary">Register</button>
                     </Link>

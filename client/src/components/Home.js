@@ -1,7 +1,7 @@
 import Card from './Card';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import '../App.css';
 
 const serverSide = 'http://localhost:9000/'
 
@@ -9,7 +9,7 @@ export default function Home() {
     // Use State
     const [products, setProducts] = useState([{}])
 
-    // Use Effect
+    // Use Effect .. use effect starts after web page render 
 
     useEffect(() => {
         async function apiCall() {
@@ -36,10 +36,10 @@ export default function Home() {
 
     return <>
         <div className="container">
-            <h1>
-                Welcome to our official store
+            <h1 className='welc-header'>
+                Welcome to our official store 🎈 🥳
             </h1>
-            <div className='row row-cols-1 row-cols-md-3 g-4' >
+            <div className='row row-cols-1 row-cols-md-4 g-4' >
                 {products.map(createCards)}
             </div>
 
