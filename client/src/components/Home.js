@@ -32,6 +32,7 @@ export default function Home() {
             title={newCard.title}
             description={newCard.description}
             price={newCard.price}
+            rating={newCard.rating}
         />
     }
 

@@ -7,6 +7,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Login/Register";
 import Product from "./components/Product";
 import NotFound from "./components/NotFound";
+import Cart from "./components/Cart";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/product/:encodedProps" element={<Product />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
