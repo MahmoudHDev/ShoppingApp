@@ -14,15 +14,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-
-
 }
-.prod-desc {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
 .cart-btn {
     font-weight: 900;
 }
