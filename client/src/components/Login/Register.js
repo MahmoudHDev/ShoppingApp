@@ -23,24 +23,24 @@ export default function Register() {
                 <div className="container col-6">
 
                     <label>Username:</label>
-                    <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" onChange={handleChange} name="username" value={newUserInfo.username} />
+                    <input type="text" className="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" onChange={handleChange} name="username" value={newUserInfo.username || ""} />
 
                     <label>Email address:</label>
-                    <input type="email" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" name="email" onChange={handleChange} value={newUserInfo.email} />
+                    <input type="email" className="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" name="email" onChange={handleChange} value={newUserInfo.email || ""} />
 
                     <label>Password:</label>
-                    <input type="password" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" onChange={handleChange} value={newUserInfo.password} />
+                    <input type="password" className="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" onChange={handleChange} value={newUserInfo.password || ""} />
 
                     <label>Re-Enter Password:</label>
-                    <input type="password" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" onChange={handleChange} value={newUserInfo.password} />
+                    <input type="password" className="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" onChange={handleChange} value={newUserInfo.password || ""} />
 
-                    <label for="birthday">Birthday:</label>
-                    <input type="date" id="birthday" name="birthday" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" onChange={handleChange} value={newUserInfo.birthday} />
+                    <label>Birthday:</label>
+                    <input type="date" id="birthday" name="birthday" className="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" onChange={handleChange} value={newUserInfo.birthday || ""} />
                 <button type="submit" className="btn btn-primary mt-3" onSubmit={handleSubmit}> Register</button>
                 </div>
 
