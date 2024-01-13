@@ -8,18 +8,13 @@ export default function Login() {
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-
         setuserInfo(values => ({ ...values, [name]: value }))
     }
 
     const handleSubmit = (event) => {
-        console.log("User Info")
         event.preventDefault();
         alert(`The name you entered was: ${userInfo}`)
     }
-
-
-
 
     return <>
         <div className="container d-flex justify-content-start" style={{ marginTop: "10rem" }}>

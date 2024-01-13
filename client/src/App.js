@@ -8,6 +8,7 @@ import Register from "./components/Login/Register";
 import Product from "./components/Product";
 import NotFound from "./components/NotFound";
 import Cart from "./components/Cart";
+import About from "./components/About";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

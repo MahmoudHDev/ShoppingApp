@@ -25,4 +25,5 @@ const Card = (props) => {
         </Link>
     </div>;
 }
+
 export default Card;

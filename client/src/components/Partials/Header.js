@@ -16,7 +16,7 @@ export default function Header() {
                     <li><Link to="#" className="nav-link px-2">Features</Link></li>
                     <li><Link to="#" className="nav-link px-2">Pricing</Link></li>
                     <li><Link to="#" className="nav-link px-2">FAQs</Link></li>
-                    <li><Link to="#" className="nav-link px-2">About</Link></li>
+                    <li><Link to="/about" className="nav-link px-2">About</Link></li>
                 </ul>
 
                 <div className="col-md-3 text-end">
