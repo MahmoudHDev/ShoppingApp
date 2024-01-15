@@ -1,8 +1,7 @@
-import { useRef, useState } from "react"
+import { useState } from "react"
 
 export default function Register() {
     const [newUserInfo, setNewUserInfo] = useState({});
-    const [errorMessage, setErrMsg] = useState("");
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -10,22 +9,16 @@ export default function Register() {
 
         setNewUserInfo(values => ({ ...values, [name]: value }));
 
-
-        console.log(newUserInfo);
-
         switch (true) {
-            case newUserInfo.username.length <= 6:
-                // Show the label and inform the user with the error
-                setErrMsg("username is short");
-                break;
-            case newUserInfo.password !== newUserInfo.passConfirmation:
-                setErrMsg("password isn't match");
+            case value:
+
                 break;
 
             default:
-                setErrMsg("");
                 break;
         }
+
+        console.log(newUserInfo)
     }
 
     const handleSubmit = (event) => {
@@ -36,10 +29,11 @@ export default function Register() {
         <div className="container" style={{ marginTop: "7rem" }}>
             <h1>Register</h1>
             <hr></hr>
+
             <form action="/register" method="post">
                 <div className="container col-6">
 
-                    <div class="input-group mb-3">
+                    <div class="input-group">
                         <input type="text" class="form-control" placeholder="First name" aria-label="fName" name="fName" onChange={handleChange} value={newUserInfo.fName || ""} />
                         <span class="input-group-text">  </span>
                         <input type="text" class="form-control" placeholder="Last name" aria-label="lName" name="lName" onChange={handleChange} value={newUserInfo.lName || ""} />
@@ -53,9 +47,12 @@ export default function Register() {
                     <input type="email" className="form-control" aria-label="email"
                         aria-describedby="inputGroup-sizing-default" name="email" onChange={handleChange} value={newUserInfo.email || ""} />
 
-                    <label>Password: <span className="text-body-secondary">{`( at least 8 characters )`}</span></label>
+                    <label>Password:</label>
                     <input type="password" className="form-control" aria-label="password" name="password"
                         aria-describedby="inputGroup-sizing-default" onChange={handleChange} value={newUserInfo.password || ""} />
+                    <div id="passwordHelpBlock" class="form-text">
+                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                    </div>
 
                     <label>Re-Enter Password:</label>
                     <input type="password" className="form-control" aria-label="passConf" name="passConf"
@@ -64,12 +61,20 @@ export default function Register() {
                     <label>Birthday:</label>
                     <input type="date" id="birthday" name="birthday" className="form-control" aria-label="birthday"
                         aria-describedby="inputGroup-sizing-default" onChange={handleChange} min="1980-01-01" max="2005-01-01" value={newUserInfo.birthday || "1980-01-01"} />
-                    <label>Gender</label>
-                    <input type="checkbox" name="gender"/>
 
-                    <button type="submit" className="btn btn-primary mt-3" onSubmit={handleSubmit}> Register</button>
+                    <select name="gender" id="" className="form-select form-select-md my-3">
+                        <option selected>Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+
+                    <div className="d-grid">
+                        <button type="submit" className="btn btn-primary mt-3" onSubmit={handleSubmit}> Register</button>
+
+                    </div>
+
                     <div className="container my-4">
-                    <p className="text-danger text-center">Error Message</p>
+                        <p className="text-danger text-center">Error Message</p>
                     </div>
                 </div>
 

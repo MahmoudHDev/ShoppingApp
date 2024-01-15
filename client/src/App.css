@@ -10,6 +10,9 @@
 .home-sec{
     margin-top: 10%;
 }
+
+
+
 .product-link{
     text-decoration: none;
     text-overflow: ellipsis;
@@ -22,7 +25,6 @@
     margin-top: 15%;
 }
 
-
 /* Login Form */
 .form-label { 
     font-size: 1.5rem;
@@ -33,7 +35,6 @@
     color: red;
     font-size: 1.2rem;
 }
-
 
 /* Footer */
 .footer-style{ 
