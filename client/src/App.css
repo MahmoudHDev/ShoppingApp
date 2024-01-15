@@ -17,6 +17,12 @@
     white-space: nowrap;
 }
 
+/* Footer */
+.footer-sec{
+    margin-top: 15%;
+}
+
+
 /* Login Form */
 .form-label { 
     font-size: 1.5rem;
