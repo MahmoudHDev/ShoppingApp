@@ -11,8 +11,6 @@
     margin-top: 10%;
 }
 
-
-
 .product-link{
     text-decoration: none;
     text-overflow: ellipsis;
@@ -30,10 +28,16 @@
     font-size: 1.5rem;
 }
 /* Reg Error */
+.form-gr{ 
+    justify-content: space-between;
+}
 .error-msg{ 
     /* visibility: hidden; */
     color: red;
     font-size: 1.2rem;
+}
+.reg-btn{ 
+    height: 7vh;
 }
 
 /* Footer */
