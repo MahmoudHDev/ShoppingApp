@@ -7,8 +7,8 @@ export default function Register() {
 
     const handleChange = (event) => {
         const name = event.target.name;
-        const value = event.target.value;
-
+        // const value = event.target.value;
+        const value = event.target.type === 'select-one' ? event.target.selectedOptions[0].value : event.target.value;
         setNewUserInfo(values => ({ ...values, [name]: value }));
         console.log(newUserInfo)
     }
