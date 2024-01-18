@@ -1,6 +1,6 @@
 import { useState } from "react"
 import axios from 'axios';
-
+import $ from 'jquery';
 
 export default function Register() {
     const [newUserInfo, setNewUserInfo] = useState({});
@@ -58,7 +58,6 @@ export default function Register() {
             }
         }
 
-
         handleRegister()
 
         // handleSubmit
@@ -107,14 +106,13 @@ export default function Register() {
 
                         <div className="col-xl-5">
                             <label className="form-label">Gender:</label>
-                            <select name="gender" id="" className="form-select form-select-md">
+                            <select name="gender" id="gender-sel" className="form-select form-select-md" onChange={handleChange}>
                                 <option selected value="Select Gender">Select Gender</option>
-                                <option value="male">Male</option>
+                                <option value="male" >Male</option>
                                 <option value="female">Female</option>
                             </select>
                         </div>
                     </div>
-
 
                     <div className="d-grid">
                         <button type="submit" className="btn btn-primary mt-3 reg-btn"> Register</button>

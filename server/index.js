@@ -19,9 +19,10 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 // Methods:-
 app.use(cors());
 app.use(home);
-// app.use(register);
+app.use(bodyParser.json());
 
 app.get('/register', (req,res)=>{
+
     console.log("Hello Get Request")
 })
 
@@ -31,8 +32,6 @@ app.post('/register', (req,res)=> {
     console.log("Hello Post Request")
 
 })
-
-
 
 
 app.listen(port, () => {
