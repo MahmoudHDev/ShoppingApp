@@ -22,9 +22,9 @@ export default function Login() {
     const handleLogin = async () => {
         try {
             const response = await axios.post(dbPort, userInfo);
-
-            if (response.data) {
+            if (response.data.success) {
                 console.log("successfully login");
+                console.log(response.data._doc);
             } else {
                 console.log("Wrong Email or password");
             }
@@ -32,8 +32,7 @@ export default function Login() {
         } catch (error) {
             console.log("Error has been occured while login" + error);
         }
-
-    }
+    };
 
 
     return <>

@@ -5,25 +5,12 @@ import bodyParser from 'body-parser';
 import bcrypt from 'bcrypt';
 import 'dotenv/config';
 import cors from 'cors';
+import User from './User.js';
+
 // Properties:-
 const router = express.Router();
 mongoose.connect('mongodb://127.0.0.1:27017/nileUsers')
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-
-const { Schema } = mongoose;
-
-const UserSchema = new Schema({
-    email: String,
-    password: String,
-    fName: String,
-    lName: String,
-    birthday: String,
-    gender: String
-});
-
-// UserSchema.plugin(bcrypt)
-const User = mongoose.model('User', UserSchema);
-
 
 // Methods:-
 router.use(cors());
