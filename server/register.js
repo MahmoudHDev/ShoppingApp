@@ -24,11 +24,11 @@ router.post('/register', (req, res) => {
     newUser.save()
     
     .then( () => {
-        res.send("user Has been saved")
+        res.send({success:true})
         console.log('console saved');
     })
     .catch( (error) => { 
-        res.send("Error Has been occured");
+        res.send({success:false});
         console.log('Error saved');
     });
 });

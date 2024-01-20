@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from 'axios';
 import ModalMessage from "../ModalMessage";
-
+import { useNavigate  } from 'react-router-dom';
 const dbPort = "http://localhost:9000/register"
 
 
@@ -56,14 +56,11 @@ export default function Register() {
         try {
             const response = await axios.post(dbPort, newUserInfo)
 
-            if (response.data) {
+            if (response.data.success) {
 
                 console.log("User has been saved in the DB")
-
-                return <ModalMessage />
             } else {
                 console.log("User hasn't been saved in the DB")
-                return <ModalMessage />
             }
 
 

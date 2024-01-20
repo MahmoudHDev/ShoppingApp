@@ -8,6 +8,7 @@ import Register from "./components/Login/Register";
 import Product from "./components/Product";
 import NotFound from "./components/NotFound";
 import Cart from "./components/Cart";
+import RegSucc from './components/RegSucc'
 import About from "./components/About";
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/RegSucc" element={<RegSucc />} />
       </Routes>
       <Footer />
     </div>
