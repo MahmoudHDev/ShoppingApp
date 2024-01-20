@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import axios from 'axios';
 import '../../App.css';
+
+const dbPort = "http://localhost:9000/login"
 
 export default function Login() {
 
@@ -13,15 +16,32 @@ export default function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`The name you entered was: ${userInfo}`)
+        handleLogin()
     }
+
+    const handleLogin = async () => {
+        try {
+            const response = await axios.post(dbPort, userInfo);
+
+            if (response.data) {
+                console.log("successfully login");
+            } else {
+                console.log("Wrong Email or password");
+            }
+
+        } catch (error) {
+            console.log("Error has been occured while login" + error);
+        }
+
+    }
+
 
     return <>
         <div className="container d-flex justify-content-start" style={{ marginTop: "10rem" }}>
             <h1>Welcome Back! 😀</h1>
             <hr></hr>
             <div className="container col-4 ">
-                <form action="/login" method="post">
+                <form action="/login" method="POST" onSubmit={handleSubmit}>
                     <div className="mb-3">
 
                         <label for="exampleInputEmail1" className="form-label">Email Address</label>
@@ -49,7 +69,7 @@ export default function Login() {
                         <input type="checkbox" className="form-check-input" id="exampleCheck1" ></input>
                         <label className="form-check-label" for="exampleCheck1">Remember me</label>
                     </div>
-                    <button type="submit" onSubmit={handleSubmit} className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

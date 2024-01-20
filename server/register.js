@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import bcrypt from 'bcrypt';
 import 'dotenv/config';
-
+import cors from 'cors';
 // Properties:-
 const router = express.Router();
 mongoose.connect('mongodb://127.0.0.1:27017/nileUsers')
@@ -12,9 +12,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 const { Schema } = mongoose;
 
-
-
-const UserSchema = new Schema( {
+const UserSchema = new Schema({
     email: String,
     password: String,
     fName: String,
@@ -24,27 +22,29 @@ const UserSchema = new Schema( {
 });
 
 // UserSchema.plugin(bcrypt)
-const User = mongoose.model('User', UserSchema );
+const User = mongoose.model('User', UserSchema);
 
 
 // Methods:-
-
+router.use(cors());
 router.use(bodyParser.json());
 
 
-router.get('/register', (req, res) => {
-    res.send('Hello World from register page');
-    console.log("Hello World")
-});
-
-
 router.post('/register', (req, res) => {
-    console.log(req.body)
-    console.log("Hello Post Request")
+    console.log("Register")
 
     const newUser = new User(req.body);
-    newUser.save().then(() => console.log('user Has been saved'));
-})
+    newUser.save()
+    
+    .then( () => {
+        res.send("user Has been saved")
+        console.log('console saved');
+    })
+    .catch( (error) => { 
+        res.send("Error Has been occured");
+        console.log('Error saved');
+    });
+});
 
 export default router;
 

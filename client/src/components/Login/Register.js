@@ -1,6 +1,10 @@
 import { useState } from "react"
 import axios from 'axios';
-import $ from 'jquery';
+import ModalMessage from "../ModalMessage";
+
+const dbPort = "http://localhost:9000/register"
+
+
 
 export default function Register() {
     const [newUserInfo, setNewUserInfo] = useState({});
@@ -44,25 +48,30 @@ export default function Register() {
     // handleSubmit
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(newUserInfo);
-        console.log("Submit button")
-
-
-
-        async function handleRegister() {
-            try {
-                const response = await axios.post('http://localhost:9000/register', newUserInfo)
-                console.log(response.data);
-            } catch (error) {
-                console.error('Error:', error.message);
-            }
-        }
-
         handleRegister()
-
         // handleSubmit
     };
 
+    async function handleRegister() {
+        try {
+            const response = await axios.post(dbPort, newUserInfo)
+
+            if (response.data) {
+
+                console.log("User has been saved in the DB")
+
+                return <ModalMessage />
+            } else {
+                console.log("User hasn't been saved in the DB")
+                return <ModalMessage />
+            }
+
+
+
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    }
     return <>
         <div className="container" style={{ marginTop: "7rem" }}>
             <h1>Register</h1>
@@ -71,14 +80,14 @@ export default function Register() {
             <form action="/register" method="POST" onSubmit={handleSubmit}>
                 <div className="container col-6">
 
-                    <div class="input-group">
-                        <div class="col-md-6">
-                            <label for="firstName" class="form-label" >First Name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="John" aria-label="fName" name="fName" onChange={handleChange} value={newUserInfo.fName || ""} />
+                    <div className="input-group">
+                        <div className="col-md-6">
+                            <label for="firstName" className="form-label" >First Name</label>
+                            <input type="text" className="form-control" id="firstName" placeholder="John" aria-label="fName" name="fName" onChange={handleChange} value={newUserInfo.fName || ""} />
                         </div>
-                        <div class="col-md-6">
-                            <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Smith" aria-label="lName" name="lName" onChange={handleChange} value={newUserInfo.lName || ""} />
+                        <div className="col-md-6">
+                            <label for="lastName" className="form-label">Last Name</label>
+                            <input type="text" className="form-control" id="lastName" placeholder="Smith" aria-label="lName" name="lName" onChange={handleChange} value={newUserInfo.lName || ""} />
                         </div>
                     </div>
 
@@ -92,7 +101,7 @@ export default function Register() {
                         <label className="form-label">Password:</label>
                         <input type="password" className="form-control" aria-label="password" name="password"
                             aria-describedby="inputGroup-sizing-default" onChange={handleChange} value={newUserInfo.password || ""} />
-                        <div id="passwordHelpBlock" class="form-text">
+                        <div id="passwordHelpBlock" className="form-text">
                             Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
                         </div>
                     </div>
