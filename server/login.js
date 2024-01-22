@@ -31,6 +31,13 @@ router.post('/login', async (req, res) => {
         const userEmail = await User.findOne({ email: email });
         // 1- Check Email 
         if (userEmail) {
+
+            bcrypt.compare(myPlaintextPassword, hash, function(err, result) {
+                // result == true
+            });
+
+
+
             const userPassword = await User.findOne({ password: password });
             // 1- Check password 
 
