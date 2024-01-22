@@ -2,7 +2,6 @@
 import express from 'express';
 import cors from 'cors';
 import axios from 'axios';
-
 import home from './home.js';
 import register from './register.js';
 import login from './login.js';
@@ -25,4 +24,7 @@ app.use(login);
 
 app.listen(port, () => {
     console.log("App Started listening " + port);
+
+
+
 });

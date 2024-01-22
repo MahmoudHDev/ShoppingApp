@@ -20,7 +20,7 @@ export default function Header() {
                 </ul>
 
                 <div className="col-md-3 text-end">
-                    <Link to="/cart"><button type="button" className="btn btn-outline-dark top-cart"><i className="bi bi-cart2"></i></button></Link>
+                    <Link to="/cart"><button type="button" className="btn btn-outline top-cart"><i className="bi bi-cart2 fa-4x" > <span class="badge" style={{backgroundColor:"red"}}>1</span> </i></button></Link>
                     <Link to="/login"><button type="button" className="btn btn-outline-primary me-2">Login</button></Link>
                     <Link to="/register"><button type="button" className="btn btn-primary">Register</button>
                     </Link>

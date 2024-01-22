@@ -32,24 +32,24 @@ router.post('/login', async (req, res) => {
         // 1- Check Email 
         if (userEmail) {
             const userPassword = await User.findOne({ password: password });
-                    // 1- Check password 
+            // 1- Check password 
 
             if (userPassword) {
-                res.send({...userEmail, success: true});
+                res.send({ ...userEmail, success: true });
             } else {
                 console.log("Password maybe Wrong")
-                res.send({success: false});
+                res.send({ success: false });
 
             }
         } else {
             console.log('User not found');
             // res.send("User not found in DB")
-            res.send({success: false})
+            res.send({ success: false })
 
         }
     } catch (error) {
         console.error('Error finding user:', error);
-        res.send({success: false})
+        res.send({ success: false })
     }
 });
 
