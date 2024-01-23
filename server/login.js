@@ -33,8 +33,8 @@ router.post('/login', async (req, res) => {
         // 1- Check Email 
         if (userEmail) {
 
-            bcrypt.compare(password, hash, function (err, result) {
-                // result == true
+            bcrypt.compare(password, userEmail.password , function (err, result) {
+
                 if (result) {
                     console.log('the result is');
                     console.log(result);

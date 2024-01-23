@@ -52,12 +52,11 @@ export default function Login() {
                             name="email"
                             value={userInfo.email || ""}
                             placeholder='example@example.com' />
-
                         <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <label for="exampleInputPassword1" className="form-label">Password</label>
                     <div className="input-group mb-3">
-                        <input type={seePass ? "text": "password"}
+                        <input type={seePass ? "text" : "password"}
                             onChange={handleChange}
                             className="form-control"
                             id="exampleInputPassword1"
@@ -76,4 +75,4 @@ export default function Login() {
             </div>
         </div>
     </>
-}
+};
