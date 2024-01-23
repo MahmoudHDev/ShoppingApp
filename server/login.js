@@ -28,12 +28,19 @@ router.post('/login', async (req, res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
+
         const userEmail = await User.findOne({ email: email });
         // 1- Check Email 
         if (userEmail) {
 
-            bcrypt.compare(myPlaintextPassword, hash, function(err, result) {
+            bcrypt.compare(password, hash, function (err, result) {
                 // result == true
+                if (result) {
+                    console.log('the result is');
+                    console.log(result);
+                } else {
+                    console.log("Error has been occured" + err)
+                }
             });
 
 

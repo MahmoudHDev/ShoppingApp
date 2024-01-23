@@ -20,7 +20,6 @@ const Card = (props) => {
             <h5 className="card-title prod-title" >{props.title}</h5>
             <h4 className="text-center">{props.price} EGP</h4>
             <p className="card-text prod-desc">{props.description}</p>
-            <button type="button" className="btn btn-outline-dark cart-btn">add to cart <i className="bi bi-cart-plus"></i></button>
         </div>
         </Link>
     </div>;

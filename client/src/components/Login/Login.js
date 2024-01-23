@@ -5,7 +5,7 @@ import '../../App.css';
 const dbPort = "http://localhost:9000/login"
 
 export default function Login() {
-
+    const [seePass, setSeePass] = useState(false)
     const [userInfo, setuserInfo] = useState({});
 
     const handleChange = (event) => {
@@ -55,14 +55,17 @@ export default function Login() {
 
                         <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                     </div>
-                    <div className="mb-3">
-                        <label for="exampleInputPassword1" className="form-label">Password</label>
-                        <input type="password"
+                    <label for="exampleInputPassword1" className="form-label">Password</label>
+                    <div className="input-group mb-3">
+                        <input type={seePass ? "text": "password"}
                             onChange={handleChange}
                             className="form-control"
                             id="exampleInputPassword1"
                             name="password"
                             value={userInfo.password || ""} />
+                        <button className="btn btn-outline-secondary" type="button" id="button-addon1" onClick={() => seePass ? setSeePass(false) : setSeePass(true)}>
+                            <i className={seePass ? "bi bi-eye-fill" : "bi bi-eye-slash-fill"}></i>
+                        </button>
                     </div>
                     <div className="mb-3 form-check">
                         <input type="checkbox" className="form-check-input" id="exampleCheck1" ></input>

@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
 import '../../App.css';
+import cart from "./cart.png";
+
+
 
 export default function Header() {
+
+    const numberItemsInCart = 1;
+
+
+
     return (
         <div className="container-fluid fixed-top">
             <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom bg-light-subtle">
@@ -13,17 +21,21 @@ export default function Header() {
 
                 <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                     <li><Link to="/" className="nav-link px-2 link-secondary">Home</Link></li>
-                    <li><Link to="#" className="nav-link px-2">Features</Link></li>
-                    <li><Link to="#" className="nav-link px-2">Pricing</Link></li>
                     <li><Link to="#" className="nav-link px-2">FAQs</Link></li>
                     <li><Link to="/about" className="nav-link px-2">About</Link></li>
                 </ul>
 
-                <div className="col-md-3 text-end">
-                    <Link to="/cart"><button type="button" className="btn btn-outline top-cart"><i className="bi bi-cart2 fa-4x" > <span class="badge" style={{backgroundColor:"red"}}>1</span> </i></button></Link>
+                <div className="col-md-4 text-end">
                     <Link to="/login"><button type="button" className="btn btn-outline-primary me-2">Login</button></Link>
-                    <Link to="/register"><button type="button" className="btn btn-primary">Register</button>
+                    <Link to="/register"><button type="button" className="btn btn-primary">Register</button></Link>
+
+                    <Link to="/cart">
+                        <button type="button" className="btn btn-outline top-cart">
+                            <img src={cart} alt="Cart Icon" height={"35px"} width={"35px"} style={{ margin: "2.5px" }}></img>
+                            <span class="badge" style={numberItemsInCart === 0 ? {visibility:"hidden"} : { visibility:"visible" ,color: "red", fontSize:"15px"}}>{numberItemsInCart}</span>
+                        </button>
                     </Link>
+                    
                 </div>
 
             </header>
