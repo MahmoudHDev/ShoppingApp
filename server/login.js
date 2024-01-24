@@ -15,7 +15,6 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 router.use(cors());
 router.use(bodyParser.json());
 
-
 router.get("/login", (req, res) => {
     res.send("Login Page get request")
 })
@@ -23,48 +22,9 @@ router.get("/login", (req, res) => {
 router.post('/login', async (req, res) => {
 
     console.log(req.body.email);
+    const email = req.body.email;
+    const password = req.body.password;
 
-
-    try {
-        const email = req.body.email;
-        const password = req.body.password;
-
-        const userEmail = await User.findOne({ email: email });
-        // 1- Check Email 
-        if (userEmail) {
-
-            bcrypt.compare(password, userEmail.password , function (err, result) {
-
-                if (result) {
-                    console.log('the result is');
-                    console.log(result);
-                } else {
-                    console.log("Error has been occured" + err)
-                }
-            });
-
-
-
-            const userPassword = await User.findOne({ password: password });
-            // 1- Check password 
-
-            if (userPassword) {
-                res.send({ ...userEmail, success: true });
-            } else {
-                console.log("Password maybe Wrong")
-                res.send({ success: false });
-
-            }
-        } else {
-            console.log('User not found');
-            // res.send("User not found in DB")
-            res.send({ success: false })
-
-        }
-    } catch (error) {
-        console.error('Error finding user:', error);
-        res.send({ success: false })
-    }
 });
 
 export default router;
