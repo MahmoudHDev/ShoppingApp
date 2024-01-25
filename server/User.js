@@ -7,6 +7,7 @@ import LocalStrategy from 'passport-local';
 const { Schema } = mongoose;
 
 const UserSchema = new Schema({
+    userName: String,
     email: String,
     password: String,
     fName: String,
@@ -14,7 +15,6 @@ const UserSchema = new Schema({
     birthday: String,
     gender: String
 });
-
 
 // Methods:-
 UserSchema.plugin(passportLocalMongoose);

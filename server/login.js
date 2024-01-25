@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import bcrypt from 'bcrypt';
 import cors from 'cors';
 import User from './User.js';
+import passport from 'passport';
 
 // Properties:-
 const router = express.Router();
@@ -21,9 +22,15 @@ router.get("/login", (req, res) => {
 
 router.post('/login', async (req, res) => {
 
-    console.log(req.body.email);
     const email = req.body.email;
     const password = req.body.password;
+
+    
+    const user = new User({
+        username: email,
+        password: password
+    });
+
 
 });
 
