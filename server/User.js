@@ -8,7 +8,6 @@ const { Schema } = mongoose;
 
 const UserSchema = new Schema({
     userName: String,
-    email: String,
     password: String,
     fName: String,
     lName: String,
@@ -20,6 +19,7 @@ const UserSchema = new Schema({
 UserSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model('User', UserSchema);
+
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

@@ -24,22 +24,25 @@ router.post('/register', (req, res) => {
     const lastName = req.body.lName;
     const userGender = req.body.gender;
     const dob = req.body.birthday;
-    User.register({ username: userEmail }, userPassword, (err, user) => {
+    
+    User.register({
+        username: userEmail,
+        fName: firstName,
+        lName: lastName,
+        birthday: dob,
+        gender: userGender
+    }, userPassword, (err, user) => {
         if (err) {
             console.log(err)
             res.send(err)
         } else {
-    
+
             passport.authenticate("local")(req, res, () => {
                 console.log("Redirect to the home or profile page")
-                res.redirect('/')
-    
+                res.redirect('/');
             })
         }
     });
-    
-
-    
 });
 
 export default router;
